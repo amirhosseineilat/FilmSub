@@ -23,7 +23,7 @@ class VideoAdmin(admin.ModelAdmin):
 
     search_fields = ("title",)
 
-    ordering = "-created_at"
+    ordering = ("-created_at",)
 
     list_per_page = 50
 
@@ -42,9 +42,9 @@ class CommentAdmin(admin.ModelAdmin):
 
     list_per_page = 50
 
-    ordering = "-created_at"
+    ordering = ("-created_at",)
 
-    search_fields = "user__username"
+    search_fields = ("user__username",)
 
     date_hierarchy = "created_at"
 
@@ -59,13 +59,13 @@ class RatingAdmin(admin.ModelAdmin):
         "created_at",
     )
 
-    list_filter = "score"
+    list_filter = ("score",)
 
     list_per_page = 50
 
-    search_fields = "user__username"
+    search_fields = ("user__username",)
 
-    ordering = "-created_at"
+    ordering = ("-created_at",)
 
 
 @admin.register(WatchHistory)
@@ -82,4 +82,4 @@ class WatchHistoryAdmin(admin.ModelAdmin):
 
     list_per_page = 50
 
-    search_fields = "user__username"
+    search_fields = ("user__username",)

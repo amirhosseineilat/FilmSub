@@ -17,7 +17,7 @@ class Video(models.Model):
 
 
 class Comment(models.Model):
-    content = models.textField()
+    content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
     video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name="comments")
     created_at = models.DateTimeField(auto_now_add=True)
@@ -31,7 +31,7 @@ class Rating(models.Model):
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["user", "video"], name="unique_user_video")
+            models.UniqueConstraint(fields=["user", "video"], name="unique_user_video_rating")
         ]
 
 
@@ -47,5 +47,5 @@ class WatchHistory(models.Model):
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["user", "video"], name="unique_user_video")
+            models.UniqueConstraint(fields=["user", "video"], name="unique_user_video_history")
         ]

@@ -11,7 +11,7 @@ class WalletAdmin(admin.ModelAdmin):
 
     list_filter = ("balance",)
 
-    search_fields = "user__username"
+    search_fields = ("user__username",)
 
     list_per_page = 50
 
@@ -30,10 +30,10 @@ class PaymentHistoryAdmin(admin.ModelAdmin):
 
     list_filter = ("status",)
 
-    ordering = "-created_at"
+    ordering = ("-created_at",)
 
     list_per_page = 50
 
-    search_fields = "user__username"
+    search_fields = ("user__username",)
 
     date_hierarchy = "created_at"

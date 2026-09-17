@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'videos',
     'subscriptions',
-    'payment'
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +129,5 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+AUTH_USER_MODEL = 'accounts.User'
