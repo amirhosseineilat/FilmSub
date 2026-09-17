@@ -24,3 +24,8 @@ class Rating(models.Model):
     video = models.ForeignKey(Video,on_delete=models.CASCADE,related_name='ratings')
     created_at = models.DateTimeField(auto_now_add=True)
 
+class WatchHistory(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='watch_history')
+    video = models.ForeignKey(Video,on_delete=models.CASCADE,related_name='watch_history')
+    remaining = models.DurationField()
+    watched_at = models.DateTimeField(auto_now_add=True)
