@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'videos',
     'subscriptions',
+    'payment'
 ]
 
 MIDDLEWARE = [
