@@ -12,6 +12,7 @@ class SubscriptionType(models.Model):
     ]
     type = models.CharField(max_length=20,choices=SUB_TYPE)
     price = models.FloatField()
+    level = models.IntegerField()
     duration = models.DurationField()
 
 class Subscription(models.Model):
