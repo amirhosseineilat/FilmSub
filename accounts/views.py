@@ -10,3 +10,4 @@ User = get_user_model()
 class Register(CreateAPIView):
     model = User
     serializer_class = RegisterSerializer
+
