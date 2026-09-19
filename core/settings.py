@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'videos',
     'subscriptions',
     'payment',
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
