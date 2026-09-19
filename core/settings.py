@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'subscriptions',
     'payment',
     "rest_framework",
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
