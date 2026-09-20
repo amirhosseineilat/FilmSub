@@ -8,24 +8,15 @@ class SubscriptionTypeSerializer(serializers.ModelSerializer):
         fields = [
             'type',
             'price',
-            'level'
+            'level',
             'duration',
         ]
 
 class SubscriptionSerializer(serializers.ModelSerializer):
 
-    subscriptionType_detail = SubscriptionTypeSerializer(
-        source='subscriptionType',
-        read_only=True
-    )
-
     class Meta:
         model = Subscription
         fields = [
-            'user',
             'subscriptionType',
-            'subscriptionType_detail',
-            'start_time',
-            'end_time',
-            'status',
         ]
+     
