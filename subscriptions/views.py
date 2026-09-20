@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from rest_framework import serializers, status
 from .models import Subscription,SubscriptionType
-from .serializers import SubscriptionSerializer,SubscriptionTypeSerializer
+from .serializers import SubscriptionSerializer,SubscriptionTypeSerializer,MySubscriptionSerializer
 from rest_framework.views import APIView, Response 
 from rest_framework.permissions import AllowAny,IsAdminUser,IsAuthenticated
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView,CreateAPIView
@@ -67,4 +67,10 @@ class SubscriptionCreateAPIView(CreateAPIView):
                 end_time=timezone.now() + subscription_type.duration,
                 status='ACTIVE')
 
-            
+class MySubscriptionListAPIView(ListCreateAPIView):
+    serializer_class = MySubscriptionSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return Subscription.objects.filter(user=user)

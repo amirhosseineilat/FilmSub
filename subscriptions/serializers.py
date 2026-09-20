@@ -19,4 +19,19 @@ class SubscriptionSerializer(serializers.ModelSerializer):
         fields = [
             'subscriptionType',
         ]
-     
+
+class MySubscriptionSerializer(serializers.ModelSerializer):
+
+    subscriptionType_detail = SubscriptionTypeSerializer(
+        source='subscriptionType',
+        read_only=True
+    )
+
+    class Meta:
+        model = Subscription
+        fields = [
+            'subscriptionType_detail',
+            'start_time',
+            'end_time',
+            'status',
+        ]
