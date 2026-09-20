@@ -49,3 +49,4 @@ class WatchHistory(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["user", "video"], name="unique_user_video_history")
         ]
+
