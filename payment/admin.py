@@ -21,8 +21,7 @@ class PaymentHistoryAdmin(admin.ModelAdmin):
 
     list_display = (
         "user",
-        "subscription",
-        "wallet",
+        "subscription_type",
         "amount",
         "status",
         "created_at",

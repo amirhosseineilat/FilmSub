@@ -1,5 +1,5 @@
 from django.db import models
-from subscriptions.models import Subscription
+from subscriptions.models import SubscriptionType
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -26,10 +26,10 @@ class PaymentHistory(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="payment_history"
     )
-    subscription = models.ForeignKey(
-        Subscription, on_delete=models.CASCADE, related_name="payment_history"
+    subscription_type = models.ForeignKey(
+        SubscriptionType, on_delete=models.CASCADE, related_name="payment_history"
     )
-    authority = models.CharField(max_length=150)
+    authority = models.CharField(max_length=150,null=True,blank=True)
     amount = models.IntegerField()
     status = models.CharField(max_length=30, choices=PAYMENT_STATUS)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -9,7 +9,7 @@ class SubscriptionTypeAdmin(admin.ModelAdmin):
 
     list_display = (
         "user",
-        "subscriptionType",
+        "subscription_type",
         "start_time",
         "end_time",
         "status",
